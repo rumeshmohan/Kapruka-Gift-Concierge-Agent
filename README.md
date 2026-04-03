@@ -27,7 +27,7 @@ It eliminates the core failure of traditional chatbots — **statelessness** —
 ## 📂 Repository Structure
 
 ```
-kapruka-concierge/
+Kapruka-Gift-Concierge-Agent/
 ├── agents/
 │   ├── catalog_agent.py          # RAG-powered gift recommendation specialist
 │   ├── chitchat_agent.py         # Warm, culturally aware Sri Lankan greeter
@@ -49,7 +49,10 @@ kapruka-concierge/
 ├── notebooks/
 │   ├── 01_the_playwright_crawler.ipynb
 │   ├── 02_cognitive_memory_lab.ipynb
-│   └── 03_specialist_orchestration_04_the_reflection_loop.ipynb
+│   ├── 03_specialist_orchestration_04_the_reflection_loop.ipynb
+│   └── 05_performance_and_proposal.ipynb
+├── reports/
+│   └── Kapruka_TEAM_Agent_Technical_Proposal.pdf # Final technical proposal and architecture design
 ├── scraper/
 │   ├── kapruka_crawler.py        # Playwright headless browser bot
 │   └── clean_and_patch.py        # LLM normaliser for raw crawled data
@@ -66,9 +69,10 @@ kapruka-concierge/
 ├── utils/
 │   ├── config.py                 # YAML config reader + API key resolver
 │   └── llm_services.py           # Shared LLM client factory
-├── .env.example                  # API key template
+├── .env .example                 # API key template
 ├── .gitignore
 ├── pyproject.toml
+├── uv.lock                       # Dependency lockfile
 └── README.md
 ```
 
@@ -120,6 +124,7 @@ kapruka-concierge/
 | `01_the_playwright_crawler.ipynb` | Scrape → LLM Enrich → Audit `catalog.json`. Verifies integer prices, URL preservation, and `SAFETY:` tag coverage. | Part 1 · 15 |
 | `02_cognitive_memory_lab.ipynb` | Validate all three memory tiers: load a Tier 1 recipient profile, ingest the catalog into Qdrant (Tier 2), and test the Tier 3 session ring buffer. | Part 2 · 30 |
 | `03_specialist_orchestration_04_the_reflection_loop.ipynb` | Wire router + all specialists + the reflection safety loop into a single `process_user_message()` pipeline and run a 5-turn multi-intent conversation test. | Parts 3 & 4 · 45 |
+| `05_performance_and_proposal.ipynb` | Performance benchmarking, deployment architecture, and generation of the final Technical Proposal. | Part 5 & 6 · 10 |
 
 ---
 
@@ -134,15 +139,15 @@ kapruka-concierge/
 ### 1 · Clone & Install
 
 ```bash
-git clone https://github.com/your-username/kapruka-concierge.git
-cd kapruka-concierge
+git clone https://github.com/rumeshmohan/Kapruka-Gift-Concierge-Agent.git
+cd Kapruka-Gift-Concierge-Agent
 pip install .
 ```
 
 ### 2 · Environment Setup
 
 ```bash
-cp .env.example .env
+cp ".env .example" .env
 ```
 
 Open `.env` and fill in your API keys. Only the keys for your chosen providers are required:
